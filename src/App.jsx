@@ -54,7 +54,7 @@ export const App = () => {
     if (query) {
       getImages();
     }
-  }, [page, query]);
+  }, [page, query, error]);
 
   const handleLoadMoreBtn = () => {
     setPage(prevState => prevState + 1);
