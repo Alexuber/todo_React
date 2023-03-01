@@ -28,3 +28,17 @@
   vertical-align: middle;
   cursor: pointer;
 }
+
+.tdId {
+  composes: td;
+  text-align: center;
+  width: 100px;
+}
+
+.inner {
+  width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+}

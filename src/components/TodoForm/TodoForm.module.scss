@@ -5,6 +5,7 @@
   width: 600px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .label {
@@ -19,23 +20,24 @@
 
 .formBtn {
   cursor: pointer;
-  height: 50px;
+  height: 30px;
   width: 70px;
-  margin-top: 35px;
 }
 
 .error {
   color: red;
   width: 150px;
+  font-size: 12px;
 }
 
 .inputError {
+  composes: input;
   border-color: red;
 }
 
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100px;
+  justify-content: flex-start;
+  height: 80px;
 }

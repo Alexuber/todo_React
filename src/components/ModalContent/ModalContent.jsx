@@ -19,7 +19,12 @@ const ModalContent = ({
         <label htmlFor="status" className={styles.label}>
           Status:
         </label>
-        <input id="status" type="checkbox" onChange={() => refreshStatus(id)} />
+        <input
+          id="status"
+          type="checkbox"
+          onChange={() => refreshStatus(id)}
+          checked={isDone ? true : false}
+        />
         <button type="button" onClick={onClick} className={styles.btn}>
           Close
         </button>

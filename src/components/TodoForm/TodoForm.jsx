@@ -38,11 +38,13 @@ const TodoForm = ({ addNewTodo }) => {
           onChange={handleChange}
           id="title"
           type="text"
-          className={styles.input}
+          className={inputError && !title ? styles.inputError : styles.input}
           placeholder="Write title of todo here..."
           value={title}
         />
-        {inputError && <p className={styles.error}>The field is empty</p>}
+        {inputError && !title && (
+          <p className={styles.error}>The field is empty</p>
+        )}
       </div>
       <div className={styles.inputWrapper}>
         <label htmlFor="description" className={styles.label}>
@@ -54,9 +56,13 @@ const TodoForm = ({ addNewTodo }) => {
           type="text"
           placeholder="Write description here..."
           value={description}
-          className={styles.input}
+          className={
+            inputError && !description ? styles.inputError : styles.input
+          }
         />
-        {inputError && <p className={styles.error}>The field is empty</p>}
+        {inputError && !description && (
+          <p className={styles.error}>The field is empty</p>
+        )}
       </div>
       <div>
         <button type="submit" value="Add to list" className={styles.formBtn}>
