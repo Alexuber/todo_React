@@ -1,0 +1,41 @@
+.form {
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-bottom: 7px;
+  height: 30px;
+  width: 240px;
+}
+
+.formBtn {
+  cursor: pointer;
+  height: 50px;
+  width: 70px;
+  margin-top: 35px;
+}
+
+.error {
+  color: red;
+  width: 150px;
+}
+
+.inputError {
+  border-color: red;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
