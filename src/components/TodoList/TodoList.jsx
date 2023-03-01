@@ -1,15 +1,17 @@
+import PropTypes from 'prop-types';
 import styles from './TodoList.module.scss';
 
 const TodoList = ({ todos, refreshStatus, showModal }) => {
   const allTodos = todos.map(({ title, description, isDone }, index) => (
-    <tr key={index} id={index} className={styles.tr}>
-      <td className={styles.tdId} onClick={() => showModal(index)}>
-        {index + 1}.
-      </td>
-      <td className={styles.td} onClick={() => showModal(index)}>
-        {title}
-      </td>
-      <td className={styles.td} onClick={() => showModal(index)}>
+    <tr
+      key={index}
+      id={index}
+      className={styles.tr}
+      onClick={event => showModal(event, index)}
+    >
+      <td className={styles.tdId}>{index + 1}.</td>
+      <td className={styles.td}>{title}</td>
+      <td className={styles.td}>
         <div className={styles.inner}>{description}</div>
       </td>
       <td className={styles.status}>
@@ -40,3 +42,13 @@ const TodoList = ({ todos, refreshStatus, showModal }) => {
 };
 
 export default TodoList;
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      isDone: PropTypes.bool.isRequired,
+    })
+  ),
+};

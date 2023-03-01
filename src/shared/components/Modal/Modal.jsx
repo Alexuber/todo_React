@@ -6,9 +6,10 @@ import styles from './Modal.module.scss';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ hideModal, children }) => {
-  const closeModal = ({ target, currentTarget, code }) => {
+  const closeModal = event => {
+    const { target, currentTarget, code } = event;
     if (target === currentTarget || code === 'Escape') {
-      hideModal();
+      hideModal(event);
     }
   };
 
@@ -19,7 +20,7 @@ export const Modal = ({ hideModal, children }) => {
   });
 
   return createPortal(
-    <div className={styles.Overlay} onClick={closeModal}>
+    <div className={styles.Overlay} onClick={event => closeModal(event)}>
       <div className={styles.Modal}>{children}</div>
     </div>,
     modalRoot

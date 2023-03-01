@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './TodoForm.module.scss';
 
 const INITIAL_STATE = { title: '', description: '' };
@@ -74,3 +75,7 @@ const TodoForm = ({ addNewTodo }) => {
 };
 
 export default TodoForm;
+
+TodoForm.propTypes = {
+  addNewTodo: PropTypes.func.isRequired,
+};

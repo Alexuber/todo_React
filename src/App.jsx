@@ -42,11 +42,15 @@ export const App = () => {
     setTodos(oldTodos);
   };
 
-  const onItemClick = index => {
+  const onItemClick = (event, index) => {
+    setTodoDetails({ ...todos[index], id: index });
+
+    if (event.target.nodeName === 'INPUT') {
+      return;
+    }
     setShowModal(prevState => {
       return !prevState;
     });
-    setTodoDetails({ ...todos[index], id: index });
   };
 
   const { title, description, isDone, id } = todoDetails;

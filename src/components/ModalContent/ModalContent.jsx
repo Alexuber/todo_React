@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ModalContent.module.scss';
 
 const ModalContent = ({
@@ -8,6 +10,15 @@ const ModalContent = ({
   description,
   title,
 }) => {
+  const [checked, setChecked] = useState(isDone);
+
+  const handleChange = id => {
+    setChecked(prevState => {
+      return !prevState;
+    });
+    refreshStatus(id);
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -22,8 +33,8 @@ const ModalContent = ({
         <input
           id="status"
           type="checkbox"
-          onChange={() => refreshStatus(id)}
-          checked={isDone ? true : false}
+          onChange={() => handleChange(id)}
+          checked={checked}
         />
         <button type="button" onClick={onClick} className={styles.btn}>
           Close
@@ -34,3 +45,12 @@ const ModalContent = ({
 };
 
 export default ModalContent;
+
+ModalContent.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  refreshStatus: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  isDone: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
